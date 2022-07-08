@@ -10,8 +10,8 @@ s3 = boto3.resource('s3')
 local_file = '/tmp/world_cup.csv'
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table(os.environ['DYNAMO_TABLE'])
-tz_sydney = timezone(os.environ['TZ_LOCAL'])
-date = datetime.now(tz_sydney).strftime("%Y-%m-%d")
+tz_local = timezone(os.environ['TZ_LOCAL'])
+date = datetime.now(tz_local).strftime("%Y-%m-%d")
 
 def run(event, context):
     print("Started\t\t" + str(event))
