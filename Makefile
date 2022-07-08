@@ -1,4 +1,4 @@
-AWS_PROFILE=jiangren10
+AWS_PROFILE=default
 ENVIRONMENT=dev
 
 deploy:

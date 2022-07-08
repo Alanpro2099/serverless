@@ -16,7 +16,7 @@ custom:
   dotenv:
     include:
       - TZ_LOCAL
-  dynamoDbTable: data_pipeline_dynamodb_table
+  dynamoDbTable: worldcup_dynamodb_demo_table
   dynamoDbArn: !Join
                   - ''
                   - - 'arn:aws:dynamodb:'
@@ -31,7 +31,7 @@ provider:
   memorySize: 256
   timeout: 300
   deploymentBucket:
-    name: jiangren10-chao-mu-deployment
+    name: wordcupexample
     maxPreviousDeploymentArtifacts: 3
   region: ${env:REGION}
   versionFunctions: true
@@ -43,7 +43,7 @@ provider:
         - s3:HeadObject
         - s3:GetObject
       Resource:
-        - arn:aws:s3:::jiangren10-chao-mu-dynamodb-demo/*
+        - arn:aws:s3:::wordcupexample/*
     - Effect: Allow
       Action: 
         - dynamodb:*
@@ -70,11 +70,11 @@ package:
 functions:
   dataPipeline:
     handler: data_pipeline.run
-    name: my_first_data_pipeline
-    description: "jiang ren data pipeline demo"
+    name: my_first_serverless_data_pipeline
+    description: "jiang ren serverless data pipeline demo"
     events:
       - s3:
-          bucket: jiangren10-chao-mu-dynamodb-demo
+          bucket: wordcupexample
           event: s3:ObjectCreated:*
           rules:
             - prefix: csv/
@@ -82,7 +82,7 @@ functions:
 
 # you can add CloudFormation resource templates here
 resources:
-  Description: Jang Ren data pipeline services defination
+  Description: JR Serverless data pipeline services definition
   Resources:
     pipelineDynamoDBTable:
       Type: AWS::DynamoDB::Table
