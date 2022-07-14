@@ -3,7 +3,7 @@
         {
             "s3":{
                 "bucket":{
-                    "name":"jiangren09-chao-mu-dynamodb-demo"
+                    "name":"wordcupexample"
                 },
                 "object":{
                     "key":"csv/WorldCup.csv"
