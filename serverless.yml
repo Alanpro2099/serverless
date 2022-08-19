@@ -70,8 +70,8 @@ package:
 functions:
   dataPipeline:
     handler: data_pipeline.run
-    name: my_first_serverless_data_pipeline
-    description: "jiang ren serverless data pipeline demo"
+    name: my_serverless_data_pipeline
+    description: "serverless data pipeline test"
     events:
       - s3:
           bucket: wordcupexample
@@ -82,7 +82,7 @@ functions:
 
 # you can add CloudFormation resource templates here
 resources:
-  Description: JR Serverless data pipeline services definition
+  Description: Serverless data pipeline services definition
   Resources:
     pipelineDynamoDBTable:
       Type: AWS::DynamoDB::Table
